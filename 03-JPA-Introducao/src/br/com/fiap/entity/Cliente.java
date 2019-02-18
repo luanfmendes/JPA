@@ -44,12 +44,13 @@ public class Cliente {
 	private Genero genero;
 	
 	@CreationTimestamp
-	@Column(name="dt_cadastro", updatable=false, nullable = false)
+	@Column(name="dt_cadastro", updatable=false)
 	@Temporal(TemporalType.DATE)
 	private Calendar dt_cadastro;
 	
 	@Lob
-	private byte foto;
+	@Column(name="fl_foto")
+	private byte[] foto;
 	
 	@Column(name="st_vip")
 	private boolean vip;
@@ -61,9 +62,9 @@ public class Cliente {
 
 	public Cliente() {
 		super();
-	}
+	}	
 
-	public Cliente(String nome, Calendar dt_nascimento, String cpf, Genero genero, byte foto, boolean vip) {
+	public Cliente(String nome, Calendar dt_nascimento, String cpf, Genero genero, byte[] foto, boolean vip) {
 		super();
 		this.nome = nome;
 		this.dt_nascimento = dt_nascimento;
@@ -71,7 +72,17 @@ public class Cliente {
 		this.genero = genero;
 		this.foto = foto;
 		this.vip = vip;
-		
+	}
+	
+	public Cliente(int codigo, String nome, Calendar dt_nascimento, String cpf, Genero genero, byte[] foto, boolean vip) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.dt_nascimento = dt_nascimento;
+		this.cpf = cpf;
+		this.genero = genero;
+		this.foto = foto;
+		this.vip = vip;
 	}
 
 	public int getCodigo() {
@@ -122,11 +133,11 @@ public class Cliente {
 		this.dt_cadastro = dt_cadastro;
 	}
 
-	public byte getFoto() {
+	public byte[] getFoto() {
 		return foto;
 	}
 
-	public void setFoto(byte foto) {
+	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
 

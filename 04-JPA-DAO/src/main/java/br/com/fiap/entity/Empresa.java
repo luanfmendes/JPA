@@ -60,6 +60,17 @@ public class Empresa {
 	
 	
 
+	public Empresa(int codigo, String nome, Calendar dt_abertura, Status status, String cnpj) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.dt_abertura = dt_abertura;
+		this.status = status;
+		this.cnpj = cnpj;
+	}
+
+
+
 	public Empresa() {
 		super();
 	}
